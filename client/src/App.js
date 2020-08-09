@@ -3,6 +3,7 @@ import axios from "axios";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Saved from "./pages/Saved";
 import Search from "./pages/Search";
+import Nav from "./Components/Nav"
 
 function App() {
   useEffect(() => {
@@ -15,6 +16,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <Nav/>
         <Switch>
           <Route exact path="/" component={Search} />
           <Route path="/saved" component={Saved} />

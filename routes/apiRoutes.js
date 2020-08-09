@@ -11,4 +11,10 @@ router.post("/books", (req,res) => {
     .then(books => res.json(books))
     .catch(err => res.status(422).end())
 })
+router.delete("/books/:id", (req,res) => {
+    db.Book.findById({_id: req.params.id})
+    .then(books => books.remove())
+    .then(books => res.json(books))
+    .catch(err => res.status(422).end())
+})
 module.exports = router;

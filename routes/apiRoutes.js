@@ -6,5 +6,9 @@ router.get("/books", (req,res) => {
     .then(books => res.json(books))
     .catch(err => res.status(422).end())
 })
-
+router.post("/books", (req,res) => {
+    db.Book.create(req.body)
+    .then(books => res.json(books))
+    .catch(err => res.status(422).end())
+})
 module.exports = router;

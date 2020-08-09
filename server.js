@@ -19,7 +19,7 @@ app.get("/api/config", (req, res) => {
   });
 });
 app.get("*", (req,res) => {
-  res.sendFile(path.join(_dirname, "./client/build/index.html"))
+  res.sendFile(path.join(__dirname, "./client/build/index.html"))
 })
 
 // Connect to the Mongo DB

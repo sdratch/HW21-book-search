@@ -1,12 +1,14 @@
 import React, { Component } from "react";
+import { Container } from "../Components/Grid";
+import Jumbotron from "../Components/Jumbotron";
 
 class Saved extends Component {
   render() {
     return (
-      <div>
-        
+      <Container>
+        <Jumbotron />
         <h1>Saved Page</h1>
-      </div>
+      </Container>
     );
   }
 }

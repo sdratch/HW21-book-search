@@ -7,7 +7,7 @@ class Saved extends Component {
     return (
       <Container>
         <Jumbotron />
-        <h1>Saved Page</h1>
+        
       </Container>
     );
   }

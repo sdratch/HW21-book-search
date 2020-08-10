@@ -27,6 +27,7 @@ const bookSeed = [
     title: "How to Photograph Flowers",
   },
   {
+    
     authors: ["Gretchen Morgenson", "Campbell R. Harvey, Ph.D."],
     description:
       "An alphabetical reference containing more than 3,500 financial terms combines definitions, lucid explanations, and examples to simplify complex financial issues.",
@@ -34,6 +35,7 @@ const bookSeed = [
       "http://books.google.com/books/content?id=eXHw5iOqzGYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     link:
       "http://books.google.com/books?id=eXHw5iOqzGYC&dq=intitle:money&hl=&source=gbs_api",
+    title:"Money"
   },
 ];
 db.Book.remove({})

@@ -10,36 +10,6 @@ class Search extends Component {
     results: [],
   };
 
-  componentDidMount() {
-    // axios
-    // .get(
-    //   "https://www.googleapis.com/books/v1/volumes?q=intitle:butter"
-    // )
-    // .then((res) => this.setState({ results: res.data.items }))
-    // .catch((err) => console.log(err));
-    this.setState({
-      results: [
-        {
-            id:"eXHw5iOqzGYC",
-          volumeInfo: {
-            title: "The New York Times Dictionary of Money and Investing",
-            authors: ["Gretchen Morgenson", "Campbell R. Harvey, Ph.D."],
-            description:
-              "An alphabetical reference containing more than 3,500 financial terms combines definitions, lucid explanations, and examples to simplify complex financial issues.",
-            imageLinks: {
-              smallThumbnail:
-                "http://books.google.com/books/content?id=eXHw5iOqzGYC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-              thumbnail:
-                "http://books.google.com/books/content?id=eXHw5iOqzGYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-            },
-            infoLink:
-              "http://books.google.com/books?id=eXHw5iOqzGYC&dq=intitle:money&hl=&source=gbs_api",
-          },
-        },
-      ],
-    });
-  }
-
   handleInputChange = (event) => {
     let value = event.target.value;
     let name = event.target.name;
@@ -55,9 +25,16 @@ class Search extends Component {
         "https://www.googleapis.com/books/v1/volumes?q=intitle:" +
           this.state.search
       )
-      .then((res) => this.setState({ results: res.data.items }))
+      .then((res) => {
+        this.setState({ results: res.data.items })
+      })
       .catch((err) => console.log(err));
   };
+  handleSave = (event) => {
+    event.preventDefault();
+    console.log(event.target.title)
+    //axios.put("/api/books", )
+  }
 
   render() {
     return (
@@ -88,7 +65,7 @@ class Search extends Component {
                 );
               })
             ) : (
-              <h1>Nothing avaliable</h1>
+              <h1>Type in book title and submit to see results</h1>
             )}
           </div>
         </div>

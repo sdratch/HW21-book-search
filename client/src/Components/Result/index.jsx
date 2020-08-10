@@ -11,13 +11,13 @@ const index = (props) => {
             <button className="btn btn-primary m-2"> Save</button>
             <a className="btn btn-primary m-2" href = {props.link}> view</a>
           </div>
-          <h6 className="card-text p-1"> {props.author.join(", ")}</h6>
+          <h6 className="card-text p-1">{typeof props.author === "undefined" ? "No Author" : props.author.join(", ")} </h6>
           <div className="row no-gutters">
             <Col size="2">
               <img
                 src={props.image}
                 className="img-thumbnail"
-                alt="book"
+                alt={props.title}
               />
             </Col>
             <Col size = "10">

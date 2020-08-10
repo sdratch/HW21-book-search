@@ -26,7 +26,16 @@ class Search extends Component {
           this.state.search
       )
       .then((res) => {
+
+        res.data.items.forEach(element => {
+          if(!("imageLinks" in element.volumeInfo)){
+            element.volumeInfo.imageLinks = {
+              thumbnail:"https://via.placeholder.com/150x200?text=No+Image+Found"
+            }
+          }
+        });
         this.setState({ results: res.data.items })
+        
       })
       .catch((err) => console.log(err));
   };

@@ -11,7 +11,6 @@ class Saved extends Component {
     axios
       .get("/api/books")
        .then((res) => this.setState({ results: res.data }))
-      //.then((res) =>console.log(res.data))
       .catch((err) => console.log(err));
 
   }
@@ -29,12 +28,14 @@ class Saved extends Component {
                 return (
                   <Result
                     key={book._id}
+                    id = {book._id}
                     title={book.title}
                     author={book.authors}
                     description={book.description}
                     image={book.image}
                     link={book.link}
                     handleSave={this.handleSave}
+                    type = "save"
                   />
                 );
               })

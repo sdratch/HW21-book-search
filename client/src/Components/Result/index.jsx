@@ -1,21 +1,21 @@
 import React from "react";
 import { Row, Col } from "../Grid";
 
-const index = () => {
+const index = (props) => {
   return (
     <Row>
       <Col size="12">
         <div className="card mb-3">
           <div className="d-flex">
-            <h3 className="card-title flex-grow-1 p-1">Book title</h3>
+            <h4 className="card-title flex-grow-1 p-1">{props.title}</h4>
             <button className="btn btn-primary m-2"> Save</button>
-            <button className="btn btn-primary m-2"> view</button>
+            <a className="btn btn-primary m-2" href = {props.link}> view</a>
           </div>
-          <h5 className="card-text p-1"> Author</h5>
+          <h6 className="card-text p-1"> {props.author.join(", ")}</h6>
           <div className="row no-gutters">
             <Col size="2">
               <img
-                src="http://books.google.com/books/content?id=eXHw5iOqzGYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                src={props.image}
                 className="img-thumbnail"
                 alt="book"
               />
@@ -23,9 +23,7 @@ const index = () => {
             <Col size = "10">
               <div className="card-body d-flex flex-column">
                 <p className="card-text">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longersdfsdfsdfddddddddddddddddddddddddddddddddddddddddd.
+                  {props.description}
                 </p>
               </div>
             </Col>

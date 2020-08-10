@@ -13,7 +13,10 @@ const index = (props) => {
   function handleDelete() {
     axios
       .delete("/api/books/" + props.id)
-      .then(() => console.log("Sucessfully deleted book"))
+      .then(() => {
+        console.log("Sucessfully deleted book");
+        window.location.reload();
+      })
       .catch((err) => console.log(err));
   }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col } from "../Grid";
 
-const index = () => {
+const index = (props) => {
   return (
     <Row>
       <Col size="12">
@@ -17,6 +17,9 @@ const index = () => {
                 class="form-control"
                 aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-lg"
+                onChange = {props.onChange}
+                name = "Search"
+                value={props.input}
               />
             </div>
               <button className="btn btn-primary mt-2 float-right">Search</button>

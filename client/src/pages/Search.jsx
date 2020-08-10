@@ -20,6 +20,7 @@ class Search extends Component {
     this.setState({
       results: [
         {
+            id:"eXHw5iOqzGYC",
           volumeInfo: {
             title: "The New York Times Dictionary of Money and Investing",
             authors: ["Gretchen Morgenson", "Campbell R. Harvey, Ph.D."],
@@ -45,7 +46,6 @@ class Search extends Component {
     this.setState({
       [name]: value,
     });
-    console.log(this.state.results[0].volumeInfo.title)
   };
 
   handleSubmit = (event) => {
@@ -58,7 +58,6 @@ class Search extends Component {
       .then((res) => this.setState({ results: res.data.items }))
       .catch((err) => console.log(err));
   };
-
 
   render() {
     return (
@@ -74,18 +73,23 @@ class Search extends Component {
           <div className="card-body">
             <h5 className="card-title">Search Results</h5>
             {this.state.results.length ? (
-                <Result 
-                title = {this.state.results[0].volumeInfo.title}
-                author = {this.state.results[0].volumeInfo.authors}
-                description = {this.state.results[0].volumeInfo.description}
-                image = {this.state.results[0].volumeInfo.imageLinks.thumbnail}
-                link = {this.state.results[0].volumeInfo.infoLink}     
-               />
-             ): ( 
-                <h1>Nothing avaliable</h1>
-             )}
-            
-
+              this.state.results.map((book) => {
+                return (
+                  <Result
+                  key = {book.id}
+                    title={book.volumeInfo.title}
+                    author={book.volumeInfo.authors}
+                    description={book.volumeInfo.description}
+                    image={
+                        book.volumeInfo.imageLinks.thumbnail
+                    }
+                    link={book.volumeInfo.infoLink}
+                  />
+                );
+              })
+            ) : (
+              <h1>Nothing avaliable</h1>
+            )}
           </div>
         </div>
       </Container>

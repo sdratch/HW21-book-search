@@ -30,12 +30,6 @@ class Search extends Component {
       })
       .catch((err) => console.log(err));
   };
-  handleSave = (event) => {
-    event.preventDefault();
-    console.log(event.target.title)
-    //axios.put("/api/books", )
-  }
-
   render() {
     return (
       <Container>
@@ -61,6 +55,7 @@ class Search extends Component {
                         book.volumeInfo.imageLinks.thumbnail
                     }
                     link={book.volumeInfo.infoLink}
+                    handleSave = {this.handleSave}
                   />
                 );
               })

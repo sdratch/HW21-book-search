@@ -1,14 +1,22 @@
 import React from "react";
 import { Row, Col } from "../Grid";
+import axios from "axios";
 
 const index = (props) => {
+
+function handleSave(){
+ axios.post("/api/books", props)
+ .then(res => console.log(res))
+ .catch(err => console.log(err))
+}
+
   return (
     <Row>
       <Col size="12">
         <div className="card mb-3">
           <div className="d-flex">
             <h4 className="card-title flex-grow-1 p-1">{props.title}</h4>
-            <button className="btn btn-primary m-2"> Save</button>
+            <button className="btn btn-primary m-2" onClick = {handleSave}> Save</button>
             <a className="btn btn-primary m-2" href = {props.link}> view</a>
           </div>
           <h6 className="card-text p-1">{typeof props.author === "undefined" ? "No Author" : props.author.join(", ")} </h6>
